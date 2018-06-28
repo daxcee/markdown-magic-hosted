@@ -30,7 +30,7 @@ module.exports = function markdownMagic(filePaths, config, callback) {
   }
   configuration.originalFilePaths = files
   const data = []
-  files.forEach((file) => {
+  files.forEach(file => {
     const output = processFile(file, configuration)
     data.push(output)
   })
@@ -44,3 +44,6 @@ module.exports.globby = globby
 
 // expose fs-extra for use in plugins
 module.exports.fsExtra = fs
+
+// expose processContent for non-file usage of markdownmagic
+module.exports.processContent = processFile.processContent
